@@ -7,7 +7,7 @@ var Server = require('karma').Server;
 var connect = require('gulp-connect');
 
 // ********** couple params *****************
-var dist_directory = 'dist';
+var dist_directory = 'build';
 
 //********** build stuff *****************
 
