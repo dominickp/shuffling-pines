@@ -71,7 +71,7 @@ gulp.task('default', ['build', 'test', 'connect', 'watch']);
 
 gulp.task('connect', function(){
     connect.server({
-        root: 'bist',
+        root: dist_directory,
         livereload: true
     });
 });
