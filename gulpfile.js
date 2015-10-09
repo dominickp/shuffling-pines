@@ -43,7 +43,8 @@ gulp.task('buildCSS', function(){
 
 gulp.task('moveHTML', function(){
     return gulp.src('src/**/*.html')
-        .pipe(gulp.dest(dist_directory));
+        .pipe(gulp.dest(dist_directory))
+        .pipe(connect.reload());;
 });
 
 gulp.task('build', ['buildVendor', 'buildCSS', 'buildApp', 'moveHTML']);
