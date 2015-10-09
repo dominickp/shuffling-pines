@@ -1,6 +1,6 @@
 bower_components
 node_modules
-/dist
+/build
 
 # Created by https://www.gitignore.io/api/webstorm
 
