@@ -13,66 +13,70 @@
   <body class="container">
     <h1>Shuffling Pines</h1>
     <div class="row">
-      <div class="col-md-12" ng-controller="TabController as vm">
+      <div class="col-md-12" ng-controller="TabController as TabCtrl">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" ng-class="{ active : vm.tab == 1 }"><a href="#form" aria-controls="form" role="tab" ng-click="vm.tab = 1">Form</a></li>
-          <li role="presentation" ng-class="{ active : vm.tab == 2 }"><a href="#guests" aria-controls="guests" role="tab" ng-click="vm.tab = 2">Guests</a></li>
+          <li role="presentation" ng-class="{ active : TabCtrl.tab == 1 }">
+            <a href="#form" aria-controls="form" role="tab" ng-click="TabCtrl.tab = 1">Form</a>
+          </li>
+          <li role="presentation" ng-class="{ active : TabCtrl.tab == 2 }">
+            <a href="#guests" aria-controls="guests" role="tab" ng-click="TabCtrl.tab = 2">Guests</a>
+          </li>
         </ul>
 
         <!-- Tab panes -->
         <div class="tab-content">
           <!-- Tab pane 1 -->
           <div role="tabpanel" class="tab-pane active" id="form">
-            <div ng-show="vm.tab == 1">
+            <div ng-show="TabCtrl.tab == 1" ng-controller="FormController as FormCtrl">
 
-              <form class="col-md-4">
+              <form class="col-md-4" ng-submit="FormCtrl.register()">
                 <h3>New Applicant</h3>
                 <div class="form-group">
                   <label for="guest-name">Guest Name</label>
-                  <input type="text" class="form-control" id="guest-name" ng-model="vm.guestName" placeholder="">
+                  <input type="text" class="form-control" id="guest-name" ng-model="FormCtrl.guestName" placeholder="" required>
                 </div>
                 <div class="form-group">
                   <label for="transition-date">Transition Date</label>
-                  <input type="date" class="form-control" id="transition-date" placeholder="" ng-model="vm.transitionDate">
+                  <input type="date" class="form-control" id="transition-date" placeholder="" ng-model="FormCtrl.transitionDate" required>
                 </div>
                 <div class="radio">
                   <label>
-                    <input type="radio" name="pickup-dropoff" id="pickup" value="pickup" checked ng-model="vm.action">
+                    <input type="radio" name="pickup-dropoff" id="pickup" value="pickup" checked ng-model="FormCtrl.action">
                     Pick-up
                   </label>
                 </div>
                 <div class="radio">
                   <label>
-                    <input type="radio" name="pickup-dropoff" id="dropoff" value="dropoff" ng-model="vm.action">
+                    <input type="radio" name="pickup-dropoff" id="dropoff" value="dropoff" ng-model="FormCtrl.action">
                     Drop-off
                   </label>
                 </div>
-                <div class="form-group" ng-show="vm.action == 'pickup'">
+                <div class="form-group" ng-show="FormCtrl.action == 'pickup'">
                   <label for="location">Location</label>
-                  <textarea class="form-control" id="location" ng-model="vm.location"></textarea>
+                  <textarea class="form-control" id="location" ng-model="FormCtrl.location"></textarea>
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
               </form>
 
               <!-- bound display --><br>
-              <div ng-show="vm.guestName || vm.transitionDate || vm.action || vm.location" class="col-md-offset-2 col-md-6 well">
+              <div ng-show="FormCtrl.guestName || FormCtrl.transitionDate || FormCtrl.action || FormCtrl.location" class="col-md-offset-2 col-md-6 well">
                 <h4>Applicant Confirmation</h4>
-                <div ng-show="vm.guestName != null" class="form-group">
+                <div ng-show="FormCtrl.guestName != null" class="form-group">
                   <label>Name: </label>
-                  {{ vm.guestName }}
+                  {{ FormCtrl.guestName }}
                 </div>
-                <div ng-show="vm.transitionDate != null"  class="form-group">
+                <div ng-show="FormCtrl.transitionDate != null"  class="form-group">
                   <label>Transition Date: </label>
-                  {{ vm.transitionDate }}
+                  {{ FormCtrl.transitionDate }}
                 </div>
-                <div ng-show="vm.action != null"  class="form-group">
+                <div ng-show="FormCtrl.action != null"  class="form-group">
                   <label>Status: </label>
-                  {{ vm.action }}
+                  {{ FormCtrl.action }}
                 </div>
-                <div ng-show="vm.location != null"  class="form-group">
+                <div ng-show="FormCtrl.location != null"  class="form-group">
                   <label>Location: </label>
-                  {{ vm.location }}
+                  {{ FormCtrl.location }}
                 </div>
               </div>
 
