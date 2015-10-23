@@ -33,7 +33,7 @@ gulp.task('buildApp', function(){
 gulp.task('buildCSS', function(){
     return gulp.src([
         'bower_components/bootstrap/dist/css/bootstrap.css',
-        'src/css/**/*.css'
+        'src/css/*.css'
     ])
         .pipe(concat('styles.css'))
         .pipe(minifycss())
