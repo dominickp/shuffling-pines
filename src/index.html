@@ -13,18 +13,18 @@
   <body>
     <h1>Shuffling Pines</h1>
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12" ng-controller="TabController as vm">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#form" aria-controls="form" role="tab" data-toggle="tab">Form</a></li>
-          <li role="presentation"><a href="#guests" aria-controls="guests" role="tab" data-toggle="tab">Guests</a></li>
+          <li role="presentation" class="active"><a href="#form" aria-controls="form" role="tab" ng-click="vm.tab = 1">Form</a></li>
+          <li role="presentation"><a href="#guests" aria-controls="guests" role="tab" ng-click="vm.tab = 2">Guests</a></li>
         </ul>
 
         <!-- Tab panes -->
         <div class="tab-content">
           <!-- Tab pane 1 -->
           <div role="tabpanel" class="tab-pane active" id="form">
-            <div>
+            <div ng-show="vm.tab == 1">
 
               <form class="col-md-6 well">
                 <div class="form-group">

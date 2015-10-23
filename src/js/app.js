@@ -1,10 +1,11 @@
-var app = angular.module('shuffling', []);
+var app = angular.module('shuffling', [])
+    .controller('FormController', [function(){
 
-app.controller('FormController', [function(){
 
+    }])
+    .controller('TabController', [function(){
 
-}]);
+        // Init on first tab
+        this.tab = 1;
 
-app.controller('TabController', [function(){
-
-}]);
+    }]);
