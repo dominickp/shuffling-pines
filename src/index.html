@@ -10,7 +10,7 @@
     <script src="app.js"></script>
   </head>
 
-  <body>
+  <body class="container">
     <h1>Shuffling Pines</h1>
     <div class="row">
       <div class="col-md-12" ng-controller="TabController as vm">
@@ -26,7 +26,8 @@
           <div role="tabpanel" class="tab-pane active" id="form">
             <div ng-show="vm.tab == 1">
 
-              <form class="col-md-6 well">
+              <form class="col-md-4">
+                <h3>New Applicant</h3>
                 <div class="form-group">
                   <label for="guest-name">Guest Name</label>
                   <input type="text" class="form-control" id="guest-name" ng-model="vm.guestName" placeholder="">
@@ -47,16 +48,16 @@
                     Drop-off
                   </label>
                 </div>
-                <div class="form-group">
+                <div class="form-group" ng-show="vm.action == 'pickup'">
                   <label for="location">Location</label>
                   <textarea class="form-control" id="location" ng-model="vm.location"></textarea>
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
               </form>
 
-              <!-- bound display -->
-              <div ng-show="vm.guestName || vm.transitionDate || vm.action || vm.location" class="col-md-6 well">
-                <h3>Your Entry</h3>
+              <!-- bound display --><br>
+              <div ng-show="vm.guestName || vm.transitionDate || vm.action || vm.location" class="col-md-offset-2 col-md-6 well">
+                <h4>Applicant Confirmation</h4>
                 <div ng-show="vm.guestName != null" class="form-group">
                   <label>Name: </label>
                   {{ vm.guestName }}
