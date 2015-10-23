@@ -16,8 +16,8 @@
       <div class="col-md-12" ng-controller="TabController as vm">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#form" aria-controls="form" role="tab" ng-click="vm.tab = 1">Form</a></li>
-          <li role="presentation"><a href="#guests" aria-controls="guests" role="tab" ng-click="vm.tab = 2">Guests</a></li>
+          <li role="presentation" ng-class="{ active : vm.tab == 1 }"><a href="#form" aria-controls="form" role="tab" ng-click="vm.tab = 1">Form</a></li>
+          <li role="presentation" ng-class="{ active : vm.tab == 2 }"><a href="#guests" aria-controls="guests" role="tab" ng-click="vm.tab = 2">Guests</a></li>
         </ul>
 
         <!-- Tab panes -->
