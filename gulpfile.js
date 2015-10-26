@@ -80,6 +80,7 @@ gulp.task('connect', function(){
 
 gulp.task('watch', function(){
     gulp.watch('src/js/**/*.js', ['buildApp', 'test']);
+    gulp.watch('src/tests/**/*.js', ['test']);
     gulp.watch('src/css/**/*.css', ['buildCSS']);
     gulp.watch('src/**/*.html', ['moveHTML']);
 });
