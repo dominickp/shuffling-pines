@@ -1,12 +1,15 @@
 var app = angular.module('shuffling', [])
     .controller('FormController', [function(){
 
-        vm = this;
+        var vm = this;
 
         vm.guests = [];
 
-        vm.register = function(){
-          console.log('register');
+        this.register = function(){
+
+
+
+            console.log('register');
 
             // Add the guest to the array
             vm.guests.push({
@@ -26,12 +29,12 @@ var app = angular.module('shuffling', [])
             delete vm.location;
 
 
-        };
+            };
 
     }])
     .controller('TabController', [function(){
 
-        vm = this;
+        var vm = this;
 
         // Init on first tab
         vm.tab = 1;
