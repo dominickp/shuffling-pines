@@ -29,6 +29,10 @@ app.controller('FormController', [function(){
         delete vm.action;
         delete vm.location;
 
+        // Redirect to tab 2
+        //vm.tab = 2;
+        // I think i need a service for this
+
 
         };
 
