@@ -1,42 +1,44 @@
-var app = angular.module('shuffling', [])
-    .controller('FormController', [function(){
+var app = angular.module('shuffling', []);
 
-        var vm = this;
+app.controller('FormController', [function(){
 
-        vm.guests = [];
+    var vm = this;
 
-        this.register = function(){
+    vm.guests = [];
 
-
-
-            console.log('register');
-
-            // Add the guest to the array
-            vm.guests.push({
-                name: vm.guestName,
-                transitionDate: vm.transitionDate,
-                entryDate: new Date(),
-                action: vm.action,
-                pickupLocation: vm.location
-            });
-            console.log(vm.guests);
-
-            // Empty values
-            delete vm.guestName;
-            delete vm.transitionDate;
-            delete vm.entryDate;
-            delete vm.action;
-            delete vm.location;
+    this.register = function(){
 
 
-            };
 
-    }])
-    .controller('TabController', [function(){
+        console.log('register');
 
-        var vm = this;
+        // Add the guest to the array
+        vm.guests.push({
+            name: vm.guestName,
+            transitionDate: vm.transitionDate,
+            entryDate: new Date(),
+            action: vm.action,
+            pickupLocation: vm.location
+        });
+        console.log(vm.guests);
 
-        // Init on first tab
-        vm.tab = 1;
+        // Empty values
+        delete vm.guestName;
+        delete vm.transitionDate;
+        delete vm.entryDate;
+        delete vm.action;
+        delete vm.location;
 
-    }]);
+
+        };
+
+}]);
+
+app.controller('TabController', [function(){
+
+    var vm = this;
+
+    // Init on first tab
+    vm.tab = 1;
+
+}]);
