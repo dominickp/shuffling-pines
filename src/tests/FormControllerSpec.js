@@ -1,7 +1,7 @@
 describe('FormController', function(){
 
     //angular.mock.module
-    beforeEach(module('logintrest'));
+    beforeEach(module('shuffling'));
 
 
     var formController;
