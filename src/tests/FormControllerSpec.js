@@ -13,6 +13,8 @@ describe('FormController', function(){
 
     it('should register a new guests', function(){
 
+        formController.guests = [];
+
         formController.guestName = 'John Harvard';
         formController.transitionDate = new Date();
         formController.entryDate = new Date();

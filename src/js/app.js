@@ -6,23 +6,21 @@ app.controller('FormController', [function(){
 
     vm.updateGuests = function() {
         localStorage.setItem('appGuests', JSON.stringify(this.guests));
-        console.log('tests');
         console.log(vm.guests);
     };
 
     // initialize
-    vm.guests = JSON.parse(localStorage.getItem('appGuests')) || [];
+    var exampleGuests = [
+        {name:'Bob Ross', transitionDate:new Date(), action:'pickup', pickupLocation:'Alaska'},
+        {name:'Shotaro Kaneda', transitionDate:new Date(), action:'pickup', pickupLocation:'Neo Tokyo'},
+        {name:'James Randi', transitionDate:new Date(), action:'pickup', pickupLocation:'Georgia'}
+    ];
+    vm.guests = JSON.parse(localStorage.getItem('appGuests')) || exampleGuests;
     vm.updateGuests();
-
-
 
     vm.register = function(){
 
-
-        //console.log('register');
-        //
-        //// Add the guest to the array
-        //console.log(vm.guests);
+        // Add the guest to the array
 
         vm.guests.push({
             name: vm.guestName,
