@@ -27,8 +27,8 @@
         <!-- Tab panes -->
         <div class="tab-content">
           <!-- Tab pane 1 -->
-          <div role="tabpanel" class="tab-pane active" id="form">
-            <div ng-show="TabCtrl.tab == 1" ng-controller="FormController as FormCtrl">
+          <div role="tabpanel" class="tab-pane" ng-class="{ active : TabCtrl.tab == 1 }" id="form" ng-show="TabCtrl.tab == 1" >
+            <div ng-controller="FormController as FormCtrl">
 
               <form class="col-md-4" ng-submit="FormCtrl.register()">
                 <h3>New Applicant</h3>
@@ -84,12 +84,15 @@
           </div>
 
           <!-- Tab pane 2 -->
-          <div role="tabpanel" class="tab-pane" id="guests">
-            <ul class="list-unstyled">
-              <li>
-
-              </li>
-            </ul>
+          <div role="tabpanel" class="tab-pane" id="guests" ng-class="{ active : TabCtrl.tab == 2 }" ng-show="TabCtrl.tab == 2">
+            <div class="col-md-6">
+              <h3>Guest List</h3>
+              <ul class="list-unstyled">
+                <li ng-repeat="guest in vm.guests">
+                  {{ guest.name }}
+                </li>
+              </ul>
+            </div>
           </div>
 
         </div>
