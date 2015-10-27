@@ -10,6 +10,10 @@ describe('FormController', function(){
         formController = $controller('FormController');
     }));
 
+    it('should load some guests on init if localStorage is empty', function(){
+        localStorage.clear();
+        expect(formController.guests.length).toBe(3);
+    });
 
     it('should register a new guests', function(){
 
@@ -33,4 +37,5 @@ describe('FormController', function(){
             expect(formController.location).toBeNull();
         });
     });
+
 });

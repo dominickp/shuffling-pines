@@ -87,11 +87,24 @@
           <div role="tabpanel" class="tab-pane" id="guests" ng-class="{ active : TabCtrl.tab == 2 }" ng-show="TabCtrl.tab == 2">
             <div class="col-md-6">
               <h3>Guest List</h3>
-              <ul class="list-unstyled">
-                <li ng-repeat="guest in vm.guests">
-                  {{ guest.name }}
-                </li>
-              </ul>
+              <table class="table table-bordered" ng-controller="FormController as FormCtrl">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Transition Date</th>
+                    <th>Action</th>
+                    <th>Pickup Location</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="guest in FormCtrl.guests">
+                    <td>{{ guest.name }}</td>
+                    <td>{{ guest.transitionDate }}</td>
+                    <td>{{ guest.action }}</td>
+                    <td>{{ guest.pickupLocation }}</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
 
