@@ -3,7 +3,6 @@ describe('FormController', function(){
     //angular.mock.module
     beforeEach(module('shuffling'));
 
-
     var formController;
 
     //angular.mock.inject
@@ -23,5 +22,13 @@ describe('FormController', function(){
         formController.register();
 
         expect(formController.guests[0].name).toBe('John Harvard');
+
+        it('should clear the values after doing so', function(){
+            expect(formController.guestName).toBeNull();
+            expect(formController.transitionDate).toBeNull();
+            expect(formController.entryDate).toBeNull();
+            expect(formController.action).toBeNull();
+            expect(formController.location).toBeNull();
+        });
     });
 });
