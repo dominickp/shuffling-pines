@@ -4,15 +4,26 @@ app.controller('FormController', [function(){
 
     var vm = this;
 
-    vm.guests = [];
+    vm.updateGuests = function() {
+        localStorage.setItem('appGuests', JSON.stringify(this.guests));
+        console.log('tests');
+        console.log(vm.guests);
+    };
 
-    this.register = function(){
+    // initialize
+    vm.guests = JSON.parse(localStorage.getItem('appGuests')) || [];
+    vm.updateGuests();
 
 
 
-        console.log('register');
+    vm.register = function(){
 
-        // Add the guest to the array
+
+        //console.log('register');
+        //
+        //// Add the guest to the array
+        //console.log(vm.guests);
+
         vm.guests.push({
             name: vm.guestName,
             transitionDate: vm.transitionDate,
@@ -20,7 +31,7 @@ app.controller('FormController', [function(){
             action: vm.action,
             pickupLocation: vm.location
         });
-        console.log(vm.guests);
+        vm.updateGuests();
 
         // Empty values
         delete vm.guestName;
