@@ -23,7 +23,10 @@ gulp.task('buildVendor', function(){
 });
 
 gulp.task('buildApp', function(){
-    return gulp.src('src/js/**/*.js')
+    return gulp.src([
+        'src/js/app.js',
+        'src/js/**/*.js'
+    ])
         .pipe(concat('app.js'))
         .pipe(uglify())
         .pipe(gulp.dest(dist_directory))
