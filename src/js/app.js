@@ -1,6 +1,6 @@
 var app = angular.module('shuffling', []);
 
-app.controller('FormController', ['Guest', function(GuestSvc){
+app.controller('FormController', ['Guest', 'Tab', function(GuestSvc, TabSvc){
 
     var vm = this;
 
@@ -19,15 +19,18 @@ app.controller('FormController', ['Guest', function(GuestSvc){
         delete vm.entryDate;
         delete vm.action;
         delete vm.location;
+
+        // Set tab to view guests
+        TabSvc.setCurrentTab(2);
     };
 
 }]);
 
-app.controller('TabController', [function(){
+app.controller('TabController', ['Tab', function(TabSvc){
 
     var vm = this;
 
     // Init on first tab
-    vm.tab = 1;
+    vm.tab = TabSvc;
 
 }]);
