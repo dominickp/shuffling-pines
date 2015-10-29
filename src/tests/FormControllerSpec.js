@@ -3,21 +3,27 @@ describe('FormController', function(){
     //angular.mock.module
     beforeEach(module('shuffling'));
 
-    var formController;
+    var formController, GuestSvc;
 
     //angular.mock.inject
     beforeEach(angular.mock.inject(function($controller){
         formController = $controller('FormController');
     }));
 
+    beforeEach(function(){
+        inject(function($injector) {
+            GuestSvc = $injector.get('Guest');
+        });
+    });
+
     it('should load some guests on init if localStorage is empty', function(){
         localStorage.clear();
-        expect(formController.guests.length).toBe(3);
+        expect(GuestSvc.guests.length).toBeGreaterThan(0);
     });
 
     it('should register a new guests', function(){
 
-        formController.guests = [];
+        GuestSvc.guests = [];
 
         formController.guestName = 'John Harvard';
         formController.transitionDate = new Date();
@@ -27,7 +33,7 @@ describe('FormController', function(){
 
         formController.register();
 
-        expect(formController.guests[0].name).toBe('John Harvard');
+        expect(GuestSvc.guests[0].name).toBe('John Harvard');
 
         it('should clear the values after doing so', function(){
             expect(formController.guestName).toBeNull();
