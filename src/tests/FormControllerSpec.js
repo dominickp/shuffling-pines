@@ -3,7 +3,7 @@ describe('FormController', function(){
     //angular.mock.module
     beforeEach(module('shuffling'));
 
-    var formController, GuestSvc;
+    var formController, GuestSvc, TabSvc;
 
     //angular.mock.inject
     beforeEach(angular.mock.inject(function($controller){
@@ -13,6 +13,7 @@ describe('FormController', function(){
     beforeEach(function(){
         inject(function($injector) {
             GuestSvc = $injector.get('Guest');
+            TabSvc = $injector.get('Tab');
         });
     });
 
@@ -41,6 +42,10 @@ describe('FormController', function(){
             expect(formController.entryDate).toBeNull();
             expect(formController.action).toBeNull();
             expect(formController.location).toBeNull();
+        });
+
+        it('should change tabs after doing so', function(){
+            expect(TabSvc.current_tab).toBe(2);
         });
     });
 
