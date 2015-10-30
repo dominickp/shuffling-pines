@@ -11,11 +11,15 @@ angular.module('shuffling').service('Guest', ['ExampleGuests', function(ExampleG
 
 
     svc.addGuest = function(user){
-
         // Add the guest to the array
         svc.guests.push(user);
         svc.updateGuests();
+    };
 
+    svc.removeGuest = function(key){
+        // Add the guest to the array
+        svc.guests.splice(key, 1);
+        svc.updateGuests();
     };
 
 }]);

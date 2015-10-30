@@ -17,11 +17,6 @@ describe('FormController', function(){
         });
     });
 
-    it('should load some guests on init if localStorage is empty', function(){
-        localStorage.clear();
-        expect(GuestSvc.guests.length).toBeGreaterThan(0);
-    });
-
     it('should register a new guests', function(){
 
         GuestSvc.guests = [];
