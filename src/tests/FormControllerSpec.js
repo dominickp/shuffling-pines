@@ -42,6 +42,15 @@ describe('FormController', function(){
         it('should change tabs after doing so', function(){
             expect(TabSvc.current_tab).toBe(2);
         });
+
+        it('should update the action of an existing guest', function(){
+            var startAction = GuestSvc.guests[0].action;
+            var newStartAciton = 'some_other_action';
+            formController.updateGuestStatus(0, newStartAciton);
+            expect(GuestSvc.guests[0].action).toBe(newStartAciton);
+            expect(GuestSvc.guests[0].action).not.toBe(startAction);
+        });
+
     });
 
 });

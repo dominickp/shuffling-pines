@@ -28,5 +28,13 @@ describe('Tab', function(){
         expect(GuestSvc.guests.length).toBe(guestCount-1);
     });
 
+    it('should update the action of an existing guest', function(){
+        var startAction = GuestSvc.guests[0].action;
+        var newStartAciton = 'some_other_action';
+        GuestSvc.setGuestStatus(0, newStartAciton);
+        expect(GuestSvc.guests[0].action).toBe(newStartAciton);
+        expect(GuestSvc.guests[0].action).not.toBe(startAction);
+    });
+
 
 });
