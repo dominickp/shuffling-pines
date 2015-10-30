@@ -97,10 +97,27 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr ng-repeat="guest in FormCtrl.guest.guests">
+                  <tr ng-repeat="(key, guest) in FormCtrl.guest.guests">
                     <td>{{ guest.name }}</td>
                     <td>{{ guest.transitionDate }}</td>
-                    <td>{{ guest.action }}</td>
+                    <td>
+
+                        <!-- Single button -->
+                        <div class="btn-group">
+                            <button type="button" class="btn dropdown-toggle" ng-class="{
+                                'btn-warning' : guest.action == 'pickup' ,
+                                'btn-primary' : guest.action == 'dropoff',
+                                'btn-success' : guest.action == 'arrived'
+                            }" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ guest.action }} <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" ng-click="FormCtrl.updateGuestStatus(key,'pick-up')">Pick-up</a></li>
+                                <li><a href="#" ng-click="FormCtrl.updateGuestStatus(key,'drop-off')">Drop-off</a></li>
+                                <li><a href="#" ng-click="FormCtrl.updateGuestStatus(key,'arrived')">Arrived</a></li>
+                            </ul>
+                        </div>
+                    </td>
                     <td>{{ guest.pickupLocation }}</td>
                   </tr>
                 </tbody>

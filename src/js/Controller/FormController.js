@@ -24,4 +24,9 @@ angular.module('shuffling').controller('FormController', ['Guest', 'Tab', functi
         TabSvc.setCurrentTab(2);
     };
 
+    vm.updateGuestStatus = function(guest_key, status){
+        GuestSvc.setGuestStatus(guest_key, status);
+        console.log('FormController');
+    };
+
 }]);

@@ -22,6 +22,12 @@ angular.module('shuffling').service('Guest', ['ExampleGuests', function(ExampleG
         svc.updateGuests();
     };
 
+    svc.setGuestStatus = function(guest_key, status){
+        svc.guests[guest_key].action = status;
+        svc.updateGuests();
+        console.log('Guest');
+    };
+
 }]);
 
 angular.module('shuffling').value('ExampleGuests', [
