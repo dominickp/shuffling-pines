@@ -1,4 +1,4 @@
-angular.module('shuffling').controller('FormController', ['Guest', 'Tab', function(GuestSvc, TabSvc){
+angular.module('shuffling').controller('FormController', ['Guest', 'Tab', '$window', function(GuestSvc, TabSvc, $window){
 
     var vm = this;
 
@@ -27,6 +27,12 @@ angular.module('shuffling').controller('FormController', ['Guest', 'Tab', functi
     vm.updateGuestStatus = function(guest_key, status){
         GuestSvc.setGuestStatus(guest_key, status);
         console.log('FormController');
+    };
+
+    vm.removeGuest = function(guest_key){
+        if ($window.confirm('Are you sure you want to remove this guest?')) {
+            GuestSvc.removeGuest(guest_key);
+        }
     };
 
 }]);

@@ -94,6 +94,7 @@
                     <th>Transition Date</th>
                     <th>Action</th>
                     <th>Pickup Location</th>
+                    <th>Remove</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -119,6 +120,9 @@
                         </div>
                     </td>
                     <td>{{ guest.pickupLocation }}</td>
+                    <td>
+                        <button ng-click="FormCtrl.removeGuest(key)" class="btn btn-danger">&times;</button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
