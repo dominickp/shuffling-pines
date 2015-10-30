@@ -6,6 +6,7 @@ describe('Tab', function(){
     var GuestSvc;
 
     beforeEach(function(){
+        //module($provide.service)
         inject(function($injector) {
             GuestSvc = $injector.get('Guest');
         });

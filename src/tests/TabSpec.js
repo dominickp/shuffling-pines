@@ -6,6 +6,13 @@ describe('Tab', function(){
     var TabSvc;
 
     beforeEach(function(){
+        module(function($provide){
+            $provide.service('Tab', function(){
+                this.current_tab = 1;
+                this.getCurrentTab = function(){return this.current_tab};
+                this.setCurrentTab = function(tab){this.current_tab = tab};
+            });
+        });
         inject(function($injector) {
             TabSvc = $injector.get('Tab');
         });
