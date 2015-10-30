@@ -51,6 +51,12 @@ describe('FormController', function(){
             expect(GuestSvc.guests[0].action).not.toBe(startAction);
         });
 
+        it('should remove an existing guest', function(){
+            var guestCount = GuestSvc.guests.length;
+            formController.removeGuest(0);
+            expect(GuestSvc.guests.length).toBe(guestCount-1);
+        });
+
     });
 
 });
