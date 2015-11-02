@@ -29,10 +29,17 @@ angular.module('shuffling').controller('FormController', ['Guest', 'Tab', '$wind
         console.log('FormController');
     };
 
-    vm.removeGuest = function(guest_key){
-        if ($window.confirm('Are you sure you want to remove this guest?')) {
+    vm.removeGuest = function(guest_key, overrideConfirm){
+        if(overrideConfirm === true){
             GuestSvc.removeGuest(guest_key);
+        } else {
+            if ($window.confirm('Are you sure you want to remove this guest?')) {
+                GuestSvc.removeGuest(guest_key);
+            } else {
+                console.log('Denied confirmation.');
+            }
         }
+
     };
 
 }]);

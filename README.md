@@ -5,5 +5,6 @@ It's an administrative application. It will allow you add a guest, remove a gues
 - npm install
 - bower install
 - gulp
+- navigate to http://localhost:8080/
 
 ### Dominick Peluso

@@ -31,7 +31,7 @@ angular.module('shuffling').service('Guest', ['ExampleGuests', function(ExampleG
 }]);
 
 angular.module('shuffling').value('ExampleGuests', [
-    {name:'Bob Ross', transitionDate:new Date(), action:'pickup', pickupLocation:'Alaska'},
-    {name:'Shotaro Kaneda', transitionDate:new Date(), action:'pickup', pickupLocation:'Neo Tokyo'},
+    {name:'Bob Ross', transitionDate:new Date(), action:'arrived', pickupLocation:'Alaska'},
+    {name:'Shotaro Kaneda', transitionDate:new Date(), action:'dropoff', pickupLocation:'Neo Tokyo'},
     {name:'James Randi', transitionDate:new Date(), action:'pickup', pickupLocation:'Georgia'}
 ]);
