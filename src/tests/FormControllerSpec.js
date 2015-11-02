@@ -114,7 +114,7 @@ describe('FormController', function(){
             $mockedWindow.confirm('OK');
             expect(GuestSvc.guests.length).toBe(guestCount-1);
         });
-        
+
     });
 
 

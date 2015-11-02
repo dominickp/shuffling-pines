@@ -24,6 +24,10 @@ angular.module('shuffling').controller('FormController', ['Guest', 'Tab', '$wind
         TabSvc.setCurrentTab(2);
     };
 
+    vm.updateName = function(guest_key, name){
+        GuestSvc.setName(guest_key, name);
+    };
+
     vm.updateGuestStatus = function(guest_key, status){
         GuestSvc.setGuestStatus(guest_key, status);
         console.log('FormController');

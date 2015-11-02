@@ -28,6 +28,11 @@ angular.module('shuffling').service('Guest', ['ExampleGuests', function(ExampleG
         console.log('Guest');
     };
 
+    svc.setName = function(guest_key, name){
+        svc.guests[guest_key].name = name;
+        svc.updateGuests();
+    };
+
 }]);
 
 angular.module('shuffling').value('ExampleGuests', [
